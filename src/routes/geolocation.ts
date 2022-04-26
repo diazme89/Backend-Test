@@ -5,7 +5,11 @@ import {getLocation,
         getForecastCurrentLocationOrCity               
 } from '../controllers/geolocation';
 
-const router = Router();
+export const router = Router();
+
+router.get('', (req, res) => {
+        res.status(200).json({ status: "running" });
+      });
 
 router.get('/location', getLocation);    
 

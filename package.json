@@ -2,10 +2,10 @@
   "name": "BackendTest",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "dist/app.js",
   "scripts": {
-    "start": "node dist/app.js",
-    "test": "node dist/index.js"
+    "start": "node dist/app",
+    "test": "mocha -r ts-node/register dist/test/index.spec.js"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +21,14 @@
   "devDependencies": {
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
+    "@types/mocha": "^9.1.1",
     "@types/public-ip": "^3.1.0",
-    "nodemon": "^2.0.15"
+    "@types/supertest": "^2.0.12",
+    "mocha": "^9.2.2",
+    "nodemon": "^2.0.15",
+    "should": "^13.2.3",
+    "supertest": "^6.2.2",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
   }
 }

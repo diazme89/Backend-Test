@@ -39,6 +39,9 @@ var Server = /** @class */ (function () {
             console.log('Se inicializo el servidor en el puerto', _this.port);
         });
     };
+    Server.prototype.getApp = function () {
+        return this.app;
+    };
     return Server;
 }());
 exports.default = Server;

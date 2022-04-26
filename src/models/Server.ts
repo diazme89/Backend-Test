@@ -9,7 +9,7 @@ import geolocalizacionPathRoute from '../routes/geolocation';
 dotenv.config(); 
 
 class Server {
-    private app: Application;
+    public app: Application;
     private port: string;
     private geolocalizacionPath: string;
    
@@ -52,6 +52,10 @@ class Server {
         this.app.listen(this.port,()=>{
             console.log('Se inicializo el servidor en el puerto', this.port)
         })
+    }
+
+    getApp() {
+        return this.app;
     }
 
 }
