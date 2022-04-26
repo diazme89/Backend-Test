@@ -1,6 +1,5 @@
 # Información acerca del proyecto - Backent-Test para Telecom
 
-``` 
 Backent-Test
 
 Se requiere implementar una API que provea en formato JSON el estado del tiempo basado en
@@ -14,8 +13,10 @@ Open Weather Map
 
 
 Quick Start
+``` 
 $ npm install
 $ npm start
+```
 
 Ruta base
 /v1
@@ -37,7 +38,7 @@ ip-api y el estado del tiempo a 5 días
 
 
 Test
+```
 $ npm install
 $ npm test
-
 ```
