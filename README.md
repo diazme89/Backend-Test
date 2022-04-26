@@ -6,11 +6,12 @@ Se requiere implementar una API que provea en formato JSON el estado del tiempo 
 diferentes endpoints. 
 
 Librerias usadas:
+```
 Supertest 
 Should
 ip-api 
 Open Weather Map
-
+```
 
 Quick Start
 ``` 
@@ -22,6 +23,7 @@ Ruta base
 /v1
 
 Endpoints implementados
+```
 /location
 
 Devuelve los datos de ubicación city según ip-api.
@@ -35,7 +37,7 @@ ip-api y el estado del tiempo actual.
 
 City es un parámetro opcional. Devuelve los datos de ubicación city o la ubicación actual según
 ip-api y el estado del tiempo a 5 días 
-
+```
 
 Test
 ```
