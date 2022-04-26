@@ -41,10 +41,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getForecastCurrentLocationOrCity = exports.getCurrentLocationOrCity = exports.getLocation = void 0;
 var express_1 = require("express");
-var remove_accents_1 = __importDefault(require("remove-accents"));
-var getCityIpApi_1 = require("./getCityIpApi");
-var getForecastByCity_1 = require("./getForecastByCity");
-var getWeatherByCity_1 = require("./getWeatherByCity");
+var axios_1 = __importDefault(require("axios"));
 var getLocation = function (req, res) {
     if (req === void 0) { req = express_1.request; }
     if (res === void 0) { res = express_1.response; }
@@ -54,12 +51,11 @@ var getLocation = function (req, res) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, getCityIpApi_1.getCityIpApi()];
+                    return [4 /*yield*/, axios_1.default.get('http://ip-api.com/json')];
                 case 1:
                     ipApi = _a.sent();
-                    res.status(200).json({
-                        ipApi: ipApi
-                    });
+                    console.log(ipApi.data);
+                    res.status(200).json({ data: ipApi.data });
                     return [3 /*break*/, 3];
                 case 2:
                     error_1 = _a.sent();
@@ -78,44 +74,20 @@ var getCurrentLocationOrCity = function (req, res) {
     if (req === void 0) { req = express_1.request; }
     if (res === void 0) { res = express_1.response; }
     return __awaiter(void 0, void 0, void 0, function () {
-        var city, ipApi, openWeatherMap, error_2;
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    city = req.params.city;
-                    _a.label = 1;
-                case 1:
-                    _a.trys.push([1, 5, , 6]);
-                    if (!!city) return [3 /*break*/, 3];
-                    return [4 /*yield*/, getCityIpApi_1.getCityIpApi()];
-                case 2:
-                    ipApi = _a.sent();
-                    city = remove_accents_1.default(ipApi.city);
-                    _a.label = 3;
-                case 3: return [4 /*yield*/, getWeatherByCity_1.getWeatherByCity(remove_accents_1.default(city))];
-                case 4:
-                    openWeatherMap = _a.sent();
-                    if (openWeatherMap) {
-                        res.status(200).json({
-                            openWeatherMap: openWeatherMap
-                        });
-                    }
-                    else {
-                        res.status(404).json({
-                            msg: 'Nombre de ciudad no encontrado'
-                        });
-                    }
-                    return [3 /*break*/, 6];
-                case 5:
-                    error_2 = _a.sent();
-                    console.log(error_2);
-                    res.status(500).json({
-                        msg: 'Hable con el administrador',
-                        error: error_2
-                    });
-                    return [3 /*break*/, 6];
-                case 6: return [2 /*return*/];
+            try {
+                // Validaciones
+                res.json({
+                    msg: 'get - Desde controller getCurrentLocationOrCity'
+                });
             }
+            catch (error) {
+                console.log(error);
+                res.status(500).json({
+                    msg: 'Hable con el administrador'
+                });
+            }
+            return [2 /*return*/];
         });
     });
 };
@@ -124,46 +96,22 @@ var getForecastCurrentLocationOrCity = function (req, res) {
     if (req === void 0) { req = express_1.request; }
     if (res === void 0) { res = express_1.response; }
     return __awaiter(void 0, void 0, void 0, function () {
-        var city, ipApi, openWeatherMap, error_3;
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    city = req.params.city;
-                    _a.label = 1;
-                case 1:
-                    _a.trys.push([1, 5, , 6]);
-                    if (!!city) return [3 /*break*/, 3];
-                    return [4 /*yield*/, getCityIpApi_1.getCityIpApi()];
-                case 2:
-                    ipApi = _a.sent();
-                    city = remove_accents_1.default(ipApi.city);
-                    _a.label = 3;
-                case 3: return [4 /*yield*/, getForecastByCity_1.getForecastByCity(remove_accents_1.default(city))];
-                case 4:
-                    openWeatherMap = _a.sent();
-                    if (openWeatherMap) {
-                        res.status(200).json({
-                            openWeatherMap: openWeatherMap
-                        });
-                    }
-                    else {
-                        res.status(404).json({
-                            msg: 'Nombre de ciudad no encontrado'
-                        });
-                    }
-                    return [3 /*break*/, 6];
-                case 5:
-                    error_3 = _a.sent();
-                    console.log(error_3);
-                    res.status(500).json({
-                        msg: 'Hable con el administrador',
-                        error: error_3
-                    });
-                    return [3 /*break*/, 6];
-                case 6: return [2 /*return*/];
+            try {
+                // Validaciones
+                res.json({
+                    msg: 'get - Desde controller getForecastCurrentLocationOrCity'
+                });
             }
+            catch (error) {
+                console.log(error);
+                res.status(500).json({
+                    msg: 'Hable con el administrador'
+                });
+            }
+            return [2 /*return*/];
         });
     });
 };
 exports.getForecastCurrentLocationOrCity = getForecastCurrentLocationOrCity;
-//# sourceMappingURL=geolocation.js.map
+//# sourceMappingURL=geolocation%20copy.js.map

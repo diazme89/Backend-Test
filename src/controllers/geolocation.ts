@@ -1,14 +1,19 @@
 import { request, response } from 'express';
+import accents from 'remove-accents';
+
+import { getCityIpApi } from './getCityIpApi';
+import { getForecastByCity } from './getForecastByCity';
+import { getWeatherByCity } from './getWeatherByCity';
+
 
 export const getLocation = async(req = request, res = response) => {
 
     try {
-        // Validaciones
-        
+        const ipApi = await getCityIpApi();
 
-        res.json({
-            msg: 'get - Desde controller getLocation'
-        })
+        res.status(200).json({                 
+            ipApi
+        });
 
     } catch (error) {
         console.log(error);
@@ -21,42 +26,82 @@ export const getLocation = async(req = request, res = response) => {
 
 
 export const getCurrentLocationOrCity = async(req = request, res = response) => {
+    
+    let { city } = req.params;
+
+    let ipApi: any;    
 
     try {
-        // Validaciones
-        
 
-        res.json({
-            msg: 'get - Desde controller getCurrentLocationOrCity'
-        })
+        if (!city) {
+
+            ipApi = await getCityIpApi(); 
+            city = accents(ipApi.city);
+      
+        }        
+
+        const openWeatherMap = await getWeatherByCity( accents(city) );
+
+        if(openWeatherMap){
+            res.status(200).json({
+                openWeatherMap
+            }); 
+        } else {
+            res.status(404).json({
+                msg: 'Nombre de ciudad no encontrado'
+            });            
+        }
+   
 
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            msg: 'Hable con el administrador'
+            msg: 'Hable con el administrador',
+            error
         });
     }   
 
 }
+
 
 
 export const getForecastCurrentLocationOrCity = async(req = request, res = response) => {
 
-    try {
-        // Validaciones
-        
+    let { city } = req.params;
 
-        res.json({
-            msg: 'get - Desde controller getForecastCurrentLocationOrCity'
-        })
+    let ipApi: any;    
+
+    try {
+
+        if (!city) {
+
+            ipApi = await getCityIpApi(); 
+            city = accents(ipApi.city);
+      
+        }        
+
+        const openWeatherMap = await getForecastByCity( accents(city) );
+
+        if(openWeatherMap){
+            res.status(200).json({
+                openWeatherMap
+            }); 
+        } else {
+            res.status(404).json({
+                msg: 'Nombre de ciudad no encontrado'
+            });            
+        }
+   
 
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            msg: 'Hable con el administrador'
+            msg: 'Hable con el administrador',
+            error
         });
-    }   
-
+    }  
 }
+
+
 
 

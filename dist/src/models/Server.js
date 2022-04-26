@@ -20,8 +20,8 @@ var Server = /** @class */ (function () {
         //Rutas de nuestra aplicacion
         this.routes();
     }
-    //Rutas de nuestra aplicacion
     Server.prototype.routes = function () {
+        //Rutas de nuestra aplicacion
         this.app.use(this.geolocalizacionPath, geolocation_1.default);
     };
     Server.prototype.middlewares = function () {
