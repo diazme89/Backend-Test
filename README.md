@@ -1,4 +1,4 @@
-# Información acerca del proyecto - Backent-Test para Telecom
+# Información acerca del proyecto - Backent-Test
 
 Backent-Test
 
