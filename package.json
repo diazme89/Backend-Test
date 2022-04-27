@@ -7,9 +7,17 @@
     "start": "node dist/app",
     "test": "mocha -r ts-node/register dist/test/index.spec.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diazme89/Backend-Test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diazme89/Backend-Test/issues"
+  },  
+  "homepage": "https://github.com/diazme89/Backend-Test/blob/main/README.md",
   "dependencies": {
     "axios": "^0.26.1",
     "cors": "^2.8.5",

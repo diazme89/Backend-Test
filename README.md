@@ -1,28 +1,28 @@
 # Información acerca del proyecto - Backent-Test
 
-Backent-Test
-
 Se requiere implementar una API que provea en formato JSON el estado del tiempo basado en
 diferentes endpoints. 
 
-Librerias usadas:
+# Librerias usadas:
 ```
 Supertest 
-Should
+mocha
 ip-api 
 Open Weather Map
 ```
 
-Quick Start
+# Quick Start
 ``` 
 $ npm install
 $ npm start
 ```
 
-Ruta base
+# Ruta base
+```
 /v1
+```
 
-Endpoints implementados
+# Endpoints implementados
 ```
 /location
 
@@ -39,7 +39,7 @@ City es un parámetro opcional. Devuelve los datos de ubicación city o la ubica
 ip-api y el estado del tiempo a 5 días 
 ```
 
-Test
+# Test
 ```
 $ npm install
 $ npm test
