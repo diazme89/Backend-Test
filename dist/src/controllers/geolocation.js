@@ -96,15 +96,13 @@ var getCurrentLocationOrCity = function (req, res) {
                 case 4:
                     openWeatherMap = _a.sent();
                     if (openWeatherMap) {
-                        res.status(200).json({
-                            openWeatherMap: openWeatherMap
-                        });
+                        return [2 /*return*/, res.status(200).json({
+                                openWeatherMap: openWeatherMap
+                            })];
                     }
-                    else {
-                        res.status(404).json({
-                            msg: 'Nombre de ciudad no encontrado'
-                        });
-                    }
+                    res.status(404).json({
+                        msg: 'Nombre de ciudad no encontrado'
+                    });
                     return [3 /*break*/, 6];
                 case 5:
                     error_2 = _a.sent();
@@ -142,15 +140,13 @@ var getForecastCurrentLocationOrCity = function (req, res) {
                 case 4:
                     openWeatherMap = _a.sent();
                     if (openWeatherMap) {
-                        res.status(200).json({
-                            openWeatherMap: openWeatherMap
-                        });
+                        return [2 /*return*/, res.status(200).json({
+                                openWeatherMap: openWeatherMap
+                            })];
                     }
-                    else {
-                        res.status(404).json({
-                            msg: 'Nombre de ciudad no encontrado'
-                        });
-                    }
+                    res.status(404).json({
+                        msg: 'Nombre de ciudad no encontrado'
+                    });
                     return [3 /*break*/, 6];
                 case 5:
                     error_3 = _a.sent();
