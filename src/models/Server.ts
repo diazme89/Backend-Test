@@ -9,7 +9,7 @@ import geolocalizacionPathRoute from '../routes/geolocation';
 dotenv.config(); 
 
 class Server {
-    public app: Application;
+    private app: Application;
     private port: string;
     private geolocalizacionPath: string;
    

@@ -43,14 +43,14 @@ export const getCurrentLocationOrCity = async(req = request, res = response) => 
         const openWeatherMap = await getWeatherByCity( accents(city) );
 
         if(openWeatherMap){
-            res.status(200).json({
+            return res.status(200).json({
                 openWeatherMap
             }); 
-        } else {
-            res.status(404).json({
-                msg: 'Nombre de ciudad no encontrado'
-            });            
         }
+        
+        res.status(404).json({
+            msg: 'Nombre de ciudad no encontrado'
+        });          
    
 
     } catch (error) {
@@ -83,14 +83,14 @@ export const getForecastCurrentLocationOrCity = async(req = request, res = respo
         const openWeatherMap = await getForecastByCity( accents(city) );
 
         if(openWeatherMap){
-            res.status(200).json({
+            return res.status(200).json({
                 openWeatherMap
             }); 
-        } else {
-            res.status(404).json({
-                msg: 'Nombre de ciudad no encontrado'
-            });            
         }
+        
+        res.status(404).json({
+            msg: 'Nombre de ciudad no encontrado'
+        });          
    
 
     } catch (error) {
